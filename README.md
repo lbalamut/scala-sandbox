@@ -1,4 +1,4 @@
-sbt-skeleton
-============
+scala sandbox
+=============
 
-My skeleton for creating scala project, mostly used as fast start
+trying ans sharing
