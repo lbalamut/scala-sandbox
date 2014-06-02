@@ -4,11 +4,14 @@ import scala.language.experimental.macros
 
 object Desugar {
 
-    def desugarImpl(c : Context)(expr : c.Expr[Any]): c.Expr[Unit] = {
+    //borrowed from https://github.com/retronym/macrocosm/blob/master/src/main/scala/com/github/retronym/macrocosm/Macrocosm.scala
+    def desugarImpl(c : Context)(expr : c.Expr[Any]): c.Expr[String] = {
         import c.universe._
-        println(show(expr.tree))
-        reify {}
+        val code = show(expr.tree)
+        c.Expr(
+            Literal(Constant(code))
+        )
     }
 
-    def desugar(expr : Any): Unit = macro desugarImpl
+    def desugar(expr : Any): String = macro desugarImpl
 }
