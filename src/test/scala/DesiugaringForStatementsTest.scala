@@ -1,6 +1,6 @@
 import org.scalatest.FunSuite
 
-class DesiugaringForTest extends FunSuite {
+class DesiugaringForStatementsTest extends FunSuite {
 
      import Desugar._
 
